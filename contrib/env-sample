@@ -1,2 +1,3 @@
 DEBUG = False
 SECRET_KEY = "0rg)cdqg6v#b4$=qi8f@as7k$9n$3e359g^iw!hbr(g+h-b1xm"
+ALLOWED_HOSTS = localhost, 127.0.0.1
