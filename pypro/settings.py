@@ -30,9 +30,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-
+AUTH_USER_MODEL = 'base.User'
 # Application definition
-COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -124,7 +123,7 @@ MEDIA = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 COLLECTFAST_ENABLED = False
-
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
 # STORAGE CONFIGURATION IN S3 AWS
