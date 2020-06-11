@@ -1,7 +1,7 @@
 # curso-django
 Repository Developed using a high-level Python Web known Django
 
-Application avaliable on https://myfirstapp-django.herokuapp.com/
+Application avaliable on https://qwerty-django.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/Alfareiza/curso-django.svg?branch=master)](https://travis-ci.org/Alfareiza/curso-django)
 [![codecov](https://codecov.io/gh/Alfareiza/curso-django/branch/master/graph/badge.svg)](https://codecov.io/gh/Alfareiza/curso-django)
