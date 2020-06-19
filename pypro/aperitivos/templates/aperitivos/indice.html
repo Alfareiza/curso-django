@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Qwerty App - Videos{% endblock title %}
+{% block description %}Site with all the videos{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-4 mb-4">Lista de Videos</h1>
+                <ol>
+                    {% for video in videos %}
+                    <li><a href="{{ video.get_absolute_url }}" >{{ video.titulo | default:"Video No Disponible"}}</a></li>
+                        {% empty %}
+                        <li>No Hay video</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
