@@ -133,3 +133,6 @@ dmypy.json
 /pypro/base/static/
 /pypro/base/static/
 /pypro/base/static/
+
+# Postgres Files
+.pgdata/
