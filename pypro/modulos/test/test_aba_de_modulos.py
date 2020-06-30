@@ -7,13 +7,13 @@ from pypro.django_assertions import assert_contains
 from pypro.modulos.models import Modulo
 
 
-@pytest.fixture()
+@pytest.fixture
 def modulos(db):
     return mommy.make(Modulo, 2)
 
 
 @pytest.fixture
-def resp(client):
+def resp(client, modulos):
     resp = client.get(reverse('base:home'))
     return resp
 
