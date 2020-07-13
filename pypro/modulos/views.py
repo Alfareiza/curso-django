@@ -10,7 +10,8 @@ def detalhe(request, slug):
 
 
 def indice(request):
-    return render(request, 'modulos/indice.html')
+    ctx = {'modulos': facade.listar_modulos_com_aulas()}
+    return render(request, 'modulos/indice.html', ctx)
 
 
 def aula(request, slug):
