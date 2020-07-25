@@ -22,40 +22,49 @@
 </head>
 <body>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 pr-0 pl-0">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'base:home' %}">Qwerty</a>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="navbar-nav ml-md-auto">
-                            <a type="button" class="btn btn-light" href="{% url 'login' %}">Login</a>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
-                            </li>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 pr-0 pl-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{% url 'base:home' %}">Qwerty</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="navbar-nav ml-md-auto">
+                        {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                   id="navbarDropdownMenuLink"
                                    data-toggle="dropdown">Módulos</a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     {% for modulo in MODULOS %}
-                                    <a class="dropdown-item" href="{{modulo.get_absolute_url}}">{{ modulo.titulo }}</a>
+                                        <a class="dropdown-item"
+                                           href="{{ modulo.get_absolute_url }}">{{ modulo.titulo }}</a>
                                     {% endfor %}
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div><!--end of header-->
-    {% block body %}{% endblock body %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#"
+                                   id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown">{{ user.first_name }}</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <div class="dropdown-item">
+                                        <a class="btn btn-danger" href="{% url 'logout' %}"> Log Out</a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% else %}
+                            <a type="button" class="btn btn-light my-2" href="{% url 'login' %}">Login</a>
+                        {% endif %}
 
-    {% include 'base/footer.html' with contato_email='ramalho@python.pro.br' %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div><!--end of header-->
+{% block body %}{% endblock body %}
+
+{% include 'base/footer.html' with contato_email='ramalho@python.pro.br' %}
 </body>
 </html>
