@@ -13,8 +13,8 @@ def modulos(db):
 
 
 @pytest.fixture
-def resp(client, modulos):
-    resp = client.get(reverse('base:home'))
+def resp(client_usuario_logado, modulos):
+    resp = client_usuario_logado.get(reverse('base:home'))
     return resp
 
 

@@ -14,6 +14,7 @@ def indice(request):
     ctx = {'modulos': facade.listar_modulos_com_aulas()}
     return render(request, 'modulos/indice.html', ctx)
 
+
 @login_required
 def aula(request, slug):
     aula = facade.encontrar_aula(slug)
