@@ -2,7 +2,7 @@ import pytest
 from django.urls import reverse
 from model_mommy import mommy
 
-from pypro.django_assertions import assert_contains
+from pypro.django_assertions import assert_contains, assert_not_contains
 
 
 @pytest.fixture
@@ -45,3 +45,28 @@ def test_butao_entrar_disponivel(resp_home):
 
 def test_link_login_disponivel(resp_home):
     assert_contains(resp_home, reverse('login'))
+
+
+@pytest.fixture
+def resp_home_usuario_logado(client_usuario_logado, db):
+    return client_usuario_logado.get(reverse('base:home'))
+
+
+def test_butao_entrar_indisponivel(resp_home_usuario_logado):
+    assert_not_contains(resp_home_usuario_logado, 'Login')
+
+
+def test_link_login_indisponivel(resp_home_usuario_logado):
+    assert_not_contains(resp_home_usuario_logado, reverse('login'))
+
+
+def test_butao_sair_disponivel(resp_home_usuario_logado):
+    assert_contains(resp_home_usuario_logado, 'logout')
+
+
+def test_nome_usuario_logado_disponivel(resp_home_usuario_logado, usuario_logado):
+    assert_contains(resp_home_usuario_logado, usuario_logado.first_name)
+
+
+def test_link_logout_disponivel(resp_home_usuario_logado):
+    assert_contains(resp_home_usuario_logado, reverse('logout'))
