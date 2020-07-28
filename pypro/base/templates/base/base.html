@@ -20,51 +20,49 @@
     <script src="{% static 'js/scripts.js' %}"></script>
 
 </head>
-<body>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 pr-0 pl-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{% url 'base:home' %}">Qwerty</a>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="navbar-nav ml-md-auto">
-                        {% if user.is_authenticated %}
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com"
-                                   id="navbarDropdownMenuLink"
-                                   data-toggle="dropdown">Módulos</a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    {% for modulo in MODULOS %}
-                                        <a class="dropdown-item"
-                                           href="{{ modulo.get_absolute_url }}">{{ modulo.titulo }}</a>
-                                    {% endfor %}
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#"
-                                   id="navbarDropdownMenuLink"
-                                   data-toggle="dropdown">{{ user.first_name }}</a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <div class="dropdown-item">
-                                        <a class="btn btn-danger" href="{% url 'logout' %}"> Log Out</a>
+<body class="footer-fijo">
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 pr-0 pl-0">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="{% url 'base:home' %}">Qwerty</a>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="navbar-nav ml-md-auto">
+                            {% if user.is_authenticated %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="http://example.com"
+                                       id="navbarDropdownMenuLink"
+                                       data-toggle="dropdown">Módulos</a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        {% for modulo in MODULOS %}
+                                            <a class="dropdown-item"
+                                               href="{{ modulo.get_absolute_url }}">{{ modulo.titulo }}</a>
+                                        {% endfor %}
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
                                     </div>
-                                </div>
-                            </li>
-                        {% else %}
-                            <a type="button" class="btn btn-light my-2" href="{% url 'login' %}">Login</a>
-                        {% endif %}
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#"
+                                       id="navbarDropdownMenuLink"
+                                       data-toggle="dropdown">{{ user.first_name }}</a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <div class="dropdown-item">
+                                            <a class="btn btn-danger" href="{% url 'logout' %}"> Log Out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% else %}
+                                <a type="button" class="btn btn-light my-2" href="{% url 'login' %}">Login</a>
+                            {% endif %}
 
-                    </ul>
-                </div>
-            </nav>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
-    </div>
-</div><!--end of header-->
-{% block body %}{% endblock body %}
-
-{% include 'base/footer.html' with contato_email='ramalho@python.pro.br' %}
+    </header><!--end of header-->
+    {% block body %}{% endblock body %}
+    {% include 'base/footer.html' with contato_email='ramalho@python.pro.br' %}
 </body>
 </html>
