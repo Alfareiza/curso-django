@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Qwerty App - Login{% endblock title %}
 {% block body %}
-    <div class="container">
+    <main class="container">
         <div class="row">
             <div class="col">
                 {% if form.errors %}
@@ -39,5 +39,5 @@
                 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
             </div>
         </div>
-    </div>
+    </main>
 {% endblock body %}

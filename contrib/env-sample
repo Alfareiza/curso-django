@@ -12,8 +12,3 @@ SENTRY_DSN = https://dcc2d0c6563a4e1782688600e6f5b0b9@o404089.ingest.sentry.io/5
 
 #Email Configurations
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
-EMAIL_HOST=localhost
-EMAIL_PORT=25
-EMAIL_HOST_USER=
-EMAIL_HOST_PASSWORD=
-EMAIL_USE_TLS=True
