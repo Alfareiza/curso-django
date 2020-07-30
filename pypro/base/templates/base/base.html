@@ -38,8 +38,8 @@
                                             <a class="dropdown-item"
                                                href="{{ modulo.get_absolute_url }}">{{ modulo.titulo }}</a>
                                         {% endfor %}
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
+                                       <!-- <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Separated link</a> -->
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -63,6 +63,6 @@
         </div>
     </header><!--end of header-->
     {% block body %}{% endblock body %}
-    {% include 'base/footer.html' with contato_email='ramalho@python.pro.br' %}
+    {% include 'base/footer.html' with contato_email='contacto@digimedios.com.co' %}
 </body>
 </html>
